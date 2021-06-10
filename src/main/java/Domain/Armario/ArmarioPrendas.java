@@ -3,6 +3,7 @@ package Domain.Armario;
 import Domain.Prenda.Atuendo;
 import Domain.Prenda.Prenda;
 import Domain.Prenda.BorradorPrenda;
+import Domain.Sugerencia.EstadoSugerencia;
 import Domain.Sugerencia.Sugerencia;
 
 import java.util.ArrayList;
@@ -53,6 +54,7 @@ public class ArmarioPrendas {
   }
 
   public void aplicarSugerencia(Sugerencia sugerencia){
+    sugerencia.validarEstado(EstadoSugerencia.PENDIENTE);
     this.sugerencias.remove(sugerencia);
     sugerencia.aplicarEn(this);
   }

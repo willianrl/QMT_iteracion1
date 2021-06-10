@@ -13,6 +13,10 @@ public abstract class Sugerencia {
     this.estado = EstadoSugerencia.PENDIENTE;
   }
 
+  public void cambiarEstado(EstadoSugerencia estado){
+    this.estado = estado;
+  }
+
   public void aplicarEn(ArmarioPrendas armario){
     this.estado = EstadoSugerencia.ACEPTADA;
     this.aplicarOperacion(armario);
@@ -23,13 +27,13 @@ public abstract class Sugerencia {
     this.deshacerOperacion(armario);
   }
 
-  private void validarEstado(EstadoSugerencia estado){
+  public void validarEstado(EstadoSugerencia estado){
     if(this.estado != estado) {
       throw new RuntimeException("estado invalido");
     }
   }
 
-  public abstract void aplicarOperacion(ArmarioPrendas armarioPrendas);
+  protected abstract void aplicarOperacion(ArmarioPrendas armarioPrendas);
 
-  public abstract void deshacerOperacion(ArmarioPrendas armario);
+  protected abstract void deshacerOperacion(ArmarioPrendas armario);
 }

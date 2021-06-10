@@ -10,12 +10,12 @@ public class AgregarPrenda extends Sugerencia{
   }
 
   @Override
-  public void aplicarOperacion(ArmarioPrendas armario) {
+  protected void aplicarOperacion(ArmarioPrendas armario) {
     armario.agregarPrendaFinalizada(this.prenda);
   }
 
   @Override
-  public void deshacerOperacion(ArmarioPrendas armario) {
+  protected void deshacerOperacion(ArmarioPrendas armario) {
     armario.quitarPrenda(this.prenda);
   }
 }
